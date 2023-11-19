@@ -1,14 +1,12 @@
 //
-// Created by M on 2023/11/5.
+// Created by M on 2023/11/8.
 //
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
-
 void error_handing(char *message);
 
 int main(int argc, char *argv[]){
@@ -43,7 +41,6 @@ int main(int argc, char *argv[]){
     if (clnt_sock == -1) {
         error_handing("accept() error");
     }
-    printf("IP is %s \n", ntohl(clnt_addr.sin_addr.s_addr));
     write(clnt_sock,message,sizeof(message));
     close(clnt_sock);
     close(serv_sock);
